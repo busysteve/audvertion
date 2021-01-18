@@ -1,0 +1,1 @@
+paplay --rate=22050 -r --raw --latency-msec=1   -d 7 | ./src/deinvert -f 2800 -s 1000 -r 44100 | ./biquad -l 3 -f 100 -q 1.0 -r 22050 -g 0.5 -t lowpass -F s16 | ./src/deinvert -f 2800 -s 1000 -r 44100 | paplay --rate=22050 -p --raw --latency-msec=1 -d 3

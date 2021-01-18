@@ -1,0 +1,97 @@
+ 2003  git clone https://github.com/windytan/deinvert.git
+ 2004  sudo apt install libsndfile1-dev libliquid-dev automake
+ 2005  ls
+ 2006  cd deinvert/
+ 2007  ls
+ 2008  ./autogen.sh 
+ 2009  ./configure 
+ 2010  make
+ 2011  ls
+ 2012  ./src/deinvert -i ~/Downloads/gnu-radio-good-old/drive-download-20191103T002207Z-001/testing2.wav -o outputtest.wav -p 4
+ 2013  ls
+ 2014  cp ~/Downloads/gnu-radio-good-old/drive-download-20191103T002207Z-001/testing2.wav inputtest.wav
+ 2015  ./src/deinvert -o decoded.wav -i outputtest.wav -p 4
+ 2016  pacat
+ 2017  man pacat
+ 2018  ./src/deinvert -o decoded.wav -p 4 | pacat
+ 2019  ./src/deinvert -o decoded.wav -p 4 | paplay
+ 2020  ./src/deinvert -o decoded.wav -p 4 | pacat
+ 2021  ./src/deinvert -o decoded.wav -p 4 | pacat --help
+ 2022  ./src/deinvert -o decoded.wav -p 4 | pacat -p --raw
+ 2023  ./src/deinvert --help
+ 2024  ./src/deinvert -o decoded.wav -p 4 | paplay -p --raw
+ 2025  ./src/deinvert -o decoded.wav -p 4 | paplay --raw
+ 2026  ./src/deinvert -o decoded.wav -p 4 | sudo paplay --raw
+ 2027  sudo ./src/deinvert -o decoded.wav -p 4 | paplay --raw
+ 2028  ./src/deinvert -o decoded.wav -p 4 | sudo paplay --raw
+ 2029  ./src/deinvert -o decoded.wav -p 4 | sudo paplay
+ 2030  ./src/deinvert -i inputtest.wav -p 4 | sudo paplay
+ 2031  ls
+ 2032  ./src/deinvert -o decoded.wav -i outputtest.wav -p 4
+ 2033  ./src/deinvert -i outputtest.wav -p 4 | paplay
+ 2034  ./src/deinvert -i outputtest.wav -p 4 | paplay --raw
+ 2035  ./src/deinvert --help
+ 2036  ./src/deinvert -r 48000 -i outputtest.wav -p 4 | paplay --raw
+ 2037  ./src/deinvert -r 24000 -i outputtest.wav -p 4 | paplay --raw
+ 2038  paplay --help
+ 2039  ./src/deinvert -r 24000 -i outputtest.wav -p 4 | paplay
+ 2040  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw
+ 2041  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=48000
+ 2042  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=16000
+ 2043  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=22000
+ 2044  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=24000
+ 2045  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=48000 --format=s16
+ 2046  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=48000 --format=s16le
+ 2047  ./src/deinvert  -i outputtest.wav -p 4 | paplay --raw --rate=24000
+ 2048  paplay -r --raw | ./src/deinvert -p 4 | paplay --raw 
+ 2049  paplay --latency-msec=100 -r --raw | ./src/deinvert -p 4 | paplay --raw 
+ 2050  paplay -r --raw --latency-msec=100 | ./src/deinvert -p 4 | paplay -p --raw --latency-msec=100
+ 2051  paplay -r --raw --latency-msec=100 | ./src/deinvert -p 4 -o ThisIsATest.wav
+ 2052  ls
+ 2053  paplay -p ThisIsATest.wav
+ 2054  ./src/deinvert --help
+ 2055  paplay -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 44100 -o ThisIsATest.wav
+ 2056  paplay -p ThisIsATest.wav
+ 2057  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 44100 -o ThisIsATest.wav
+ 2058  paplay -p ThisIsATest.wav
+ 2059  paplay --rate=44100 -p ThisIsATest.wav
+ 2060  paplay --help
+ 2061  ./src/deinvert --help
+ 2062  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 22050 -o ThisIsATest.wav
+ 2063  paplay --rate=44100 -p ThisIsATest.wav
+ 2064  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 -o ThisIsATest.wav
+ 2065  paplay --rate=44100 -p ThisIsATest.wav
+ 2066  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 -o ThisIsATest.wav
+ 2067  paplay --rate=44100 -p ThisIsATest.wav
+ 2068  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 -o ThisIsATest.wav
+ 2069  paplay --rate=44100 -p ThisIsATest.wav
+ 2070  ./src/deinvert -p 4 -r 88200 -i ThisIsATest.wav -o ThisIsATestDecoded.wav
+ 2071  ls
+ 2072  paplay --rate=44100 -p ThisIsATestDecoded.wav
+ 2073  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 -o ThisIsATest.wav
+ 2074  paplay --rate=44100 -p ThisIsATest.wav
+ 2075  ./src/deinvert -p 4 -r 88200 -i ThisIsATest.wav -o ThisIsATestDecoded.wav
+ 2076  paplay --rate=44100 -p ThisIsATestDecoded.wav
+ 2077  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 -o ThisIsATestEncoded.wav
+ 2078  ./src/deinvert -p 4 -r 88200 -i ThisIsATestEncoded.wav -o ThisIsATestDecoded.wav
+ 2079  paplay --rate=44100 -p ThisIsATestDecoded.wav
+ 2080  paplay --rate=44100 -p ThisIsATestEncoded.wav
+ 2081  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 4 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2082  history
+
+
+ 2096  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 6 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2097  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 6 -r 88200 | ./src/deinvert -p 3 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2098  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 9 -r 88200 | ./src/deinvert -p 3 -r 88200 |  ./src/deinvert -p 6 -r 88200 | ./src/deinvert -p 9 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2099  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 8 -r 88200 | ./src/deinvert -p 3 -r 88200 |  ./src/deinvert -p 6 -r 88200 | ./src/deinvert -p 8 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2100  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 8 -r 88200 | ./src/deinvert -p 8 -r 88200 |  ./src/deinvert -p 6 -r 88200 | ./src/deinvert -p 3 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2101  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -p 3 -r 88200 | ./src/deinvert -p 6 -r 88200 |  ./src/deinvert -p 8 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100 
+ 2102  history
+
+
+ 0000  paplay --rate=44100 -r --raw --latency-msec=100 | ./src/deinvert -f 2800 -s 1500 -r 88200 | paplay --rate=44100 -p --raw --latency-msec=100
+
+paplay --rate=22050 -r --raw --latency-msec=1 --format=float32le   -d 7 | ./biquad -l 4 -f 1000 -q 1.0 -r 22050 -g 0.5 -t lowpass | paplay --rate=22050 -p --raw --latency-msec=1 --format=float32le -d 3
+
+
+
