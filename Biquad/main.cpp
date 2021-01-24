@@ -147,7 +147,7 @@ int main( int argc, char**argv )
 	{
 		short data[64]; 
 		float sample;
-		while( ( result = fread(&data,sizeof(data),1,stdin) ) != sizeof(data) ) {
+		while( ( result = fread(&data,sizeof(data),1,stdin) ) == 1 ) {
 			for( int i=0; i < 64; i++ ) {
 				sample = ( (float)data[i] ); // / (float)SHRT_MAX;
 				data[i] = ((short)process( biquads, sample ) ); // * SHRT_MAX;
@@ -158,7 +158,7 @@ int main( int argc, char**argv )
 	else if( format == "float32" || format == "float" || format == "" )
 	{
 		float data[64]; 
-		while( ( result = fread(&data,sizeof(data),1,stdin) ) != sizeof(data) ) {
+		while( ( result = fread(&data,sizeof(data),1,stdin) ) == 1 ) {
 			for( int i=0; i < 64; i++ )
 			{
 				data[i] = process( biquads, data[i] );
